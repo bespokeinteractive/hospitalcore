@@ -263,6 +263,47 @@
 		</sql>
 	</diff>
 	<diff>
+		<version></version>
+	<author>ngarivictor</author>
+	<date>Nov 11 2015</date>
+<description>
+	Billing_patient_service_bill_item
+</description>
+<sql>
+	
+	CREATE TABLE IF NOT EXISTS
+			`billing_patient_service_bill_item` (
+			`patient_service_bill_item_id`
+			int(11) NOT NULL auto_increment,
+			`service_id` int(11) default NULL,
+			`patient_service_bill_id` int(11) default NULL,
+			`unitPrice`
+			decimal(19,2) default NULL,
+			`amount` decimal(19,2) default NULL,
+			`quantity` int(11) default NULL,
+			`name` varchar(255) default NULL,
+			`created_date` datetime default NULL,
+			`voided` bit(1) default NULL,
+			`voided_date` datetime default NULL,
+			PRIMARY KEY
+			(`patient_service_bill_item_id`),
+			KEY
+			`fk_patientservicebillitem_service` (`service_id`),
+			KEY
+			`fk_patientservicebillitem_patientservicebill`
+			(`patient_service_bill_id`),
+			CONSTRAINT
+			`fk_patientservicebillitem_patientservicebill` FOREIGN KEY
+			(`patient_service_bill_id`) REFERENCES `billing_patient_service_bill`
+			(`patient_service_bill_id`),
+			CONSTRAINT
+			`fk_patientservicebillitem_service` FOREIGN KEY (`service_id`)
+			REFERENCES `billing_service` (`service_id`)
+			) ENGINE=InnoDB DEFAULT
+			CHARSET=utf8;
+	
+</sql>
+		
 		<version>2.2</version>
 		<author>ghanshyan</author>
 		<date>November 1 2014</date>
