@@ -129,6 +129,25 @@ public interface HospitalCoreService extends OpenmrsService {
 	public List<Patient> searchPatient(String nameOrIdentifier, String gender,
 			int age, int rangeAge, String date, int rangeDay,
 			String relativeName) throws APIException;
+	/**
+	 *
+	 * @param nameOrIdentifier
+	 * @param gender
+	 * @param age
+	 * @param rangeAge
+	 * @param lastDayOfVisit
+	 * @param rangeDay
+	 * @param relativeName
+	 * @param maritalStatus
+	 * @param phoneNumber
+	 * @param nationalId
+	 * @param fileNumber
+	 * @return
+	 * @throws APIException
+	 */
+	public List<Patient> searchPatient(String nameOrIdentifier,String gender,
+									   int age , int rangeAge, String lastDayOfVisit, int rangeDay,String relativeName,
+									   String maritalStatus,String phoneNumber,String nationalId,String fileNumber) throws APIException;
 
 	/**
 	 * Search patients
